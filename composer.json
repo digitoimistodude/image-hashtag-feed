@@ -4,7 +4,7 @@
   "description": "WordPress plugin to get Instagram hashtag feeds working again by bypassing the API.",
   "homepage": "https://github.com/digitoimistodude/image-hashtag-feed",
   "keywords": ["wordpress", "plugin", "instagram"],
-  "license": "MIT",
+  "license": "gplv2",
   "version": "1.0.0",
   "authors": [
     {
