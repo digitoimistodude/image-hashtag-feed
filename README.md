@@ -100,3 +100,4 @@ If you have ideas about the theme or spot an issue, please let us know. Before c
 
 ### TODO
 - [ ] Support for multiple hashtags
+- [ ] Run fetch after `dude_img_hashfeed_insta_count` value has changed
