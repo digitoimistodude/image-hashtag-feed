@@ -6,6 +6,7 @@ The Instagram fetcher is based on [Instagram-Hashtag-Grabber](https://github.com
 ## Table of contents
 1. [Please note before using](#please-note-before-using)
 2. [License](#license)
+		1. [Legal](#legal)
 3. [Usage](#usage)
     1. [Settings](#settings)
     2. [Functions](#functions)
@@ -18,6 +19,13 @@ The Instagram fetcher is based on [Instagram-Hashtag-Grabber](https://github.com
 Image hashtag feed plugin is not meant to be "plugin for everyone", it needs at least some basic knowledge about php and css to add it to your site and making it look beautiful.
 
 This is a plugin in development for now, so it may update very often because new features and changes in Instagram's end. By using this plugin, you agree that the anything can change to a different direction without a warning.
+
+#### Legal
+Please be aware that Instagram prohibits crawling, scraping and caching in their [TOC](https://help.instagram.com/478745558852511). This plugin uses same endpoint that Instagram is using in their own site, so it's arguable if TOC can prohibit the use of openly available information.
+​
+There has been few [court cases in United States](https://en.wikipedia.org/wiki/Web_scraping#Legal_issues), where the court has ruled that scraping is illegal. In Europe, there have been also few similar cases. None of these cases have had Instagram involved.
+​
+**This being said, use your own consideration whether you wan't to use this plugin.**
 
 ### License
 Image hashtag feed is released under the GNU GPL 2 or later.
