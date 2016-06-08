@@ -10,8 +10,9 @@ The Instagram fetcher is based on [Instagram-Hashtag-Grabber](https://github.com
     1. [Settings](#settings)
     2. [Functions](#functions)
     3. [Hooks](#hooks)
-4. [Contributing](#contributing)
-5. [TODO](#todo)
+4. [Composer](#composer)
+5. [Contributing](#contributing)
+6. [TODO](#todo)
 
 ### Please note before using
 Image hashtag feed plugin is not meant to be "plugin for everyone", it needs at least some basic knowledge about php and css to add it to your site and making it look beautiful.
@@ -94,6 +95,10 @@ By default we are asking instagram to return timestamp, comment and like counts,
 ```
 ig_hashtag($hashtag) { media.first($count) { count, nodes { caption, code, comments { count }, date, display_src, id, is_video, likes { count }, owner { id, username }, thumbnail_src, video_views, video_url }, page_info } }
 ```
+
+### Composer
+
+To use with composer, run `composer require digitoimistodude/image-hashtag-feed dev-master` in your project directory or add `"digitoimistodude/image-hashtag-feed":"dev-master"` to your composer.json require.
 
 ### Contributing
 If you have ideas about the theme or spot an issue, please let us know. Before contributing ideas or reporting an issue about "missing" features or things regarding to the nature of that matter, please read [Please note section](#please-note-before-using). Thank you very much.
