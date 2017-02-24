@@ -5,8 +5,8 @@
  * Plugin URI:        https://github.com/digitoimistodude/image-hashtag-feed
  * Description:       Get Instagram hashtag feeds working again by bypassing the API.
  * Version:           1.1.0
- * Author:            Digitoimisto Dude
- * Author URI:        http://dude.fi
+ * Author:            Digitoimisto Dude Oy, Timi Wahalahti
+ * Author URI:        https://www.dude.fi
  * GitHub Plugin URI: digitoimistodude/image-hashtag-feed
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
