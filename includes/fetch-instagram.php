@@ -23,28 +23,9 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 		if( empty( $hashtag ) )
 			return false;
 
-		$parameters = apply_filters( 'dude_img_hashfeed_insta_fetch_parameters', "ig_hashtag($hashtag) { media.first($count) { count, nodes { caption, code, comments { count }, date, display_src, id, is_video, likes { count }, owner { id, username, full_name, profile_pic_url }, thumbnail_src, video_views, video_url }, page_info } }" );
-		$parameters = urlencode( $parameters );
-    if( !function_exists( 'curl_init' ) ) {
-      return false;
-    }
-
-    $random = self::generate_random_string();
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/query/");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, 'q='.$parameters);
-    $headers = array();
-    $headers[] = "Cookie:  csrftoken=$random;";
-    $headers[] = "X-Csrftoken: $random";
-    $headers[] = "Referer: https://www.instagram.com/";
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    $output = curl_exec($ch);
-    curl_close($ch);
-
-    $output = json_decode( $output );
-    $insta = $output->media->nodes;
+		$url = "https://www.instagram.com/explore/tags/{$hashtag}/?__a=1";
+   		$output = json_decode( file_get_contents( $url ) );
+    		$insta = $output->tag->media->nodes;
 
 		if( empty( $insta ) )
 			return false;
