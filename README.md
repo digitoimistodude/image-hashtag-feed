@@ -13,7 +13,6 @@ The Instagram fetcher is based on [Instagram-Hashtag-Grabber](https://github.com
     3. [Hooks](#hooks)
 4. [Composer](#composer)
 5. [Contributing](#contributing)
-6. [TODO](#todo)
 
 ### Please note before using
 Image hashtag feed plugin is not meant to be "plugin for everyone", it needs at least some basic knowledge about php and css to add it to your site and making it look beautiful.
@@ -34,7 +33,7 @@ Image hashtag feed is released under the GNU GPL 2 or later.
 #### Settings
 Settings page can be found from `Settings` -> `Image hashtag feed`.
 
-From settings page you can set which hastag to use and check when the last fetch from Instagram was made.
+From settings page you can set which hastag to use and check when the last fetch from Instagram was made. Hashtag can be also set dynamically from functions described below.
 
 #### Functions
 Plugin brings few functions to use in your site.
@@ -92,6 +91,9 @@ Change amount of images to fetch and store. Default value is 10.
 
 Usage is simple; add `add_filter( 'dude_img_hashfeed_insta_count', function() { return 2; } );` to your theme functions.php file.
 
+##### `dude_img_hashfeed_insta_count_{$hashtag}`
+Change amount of images to fetch and store by hashtag. Defaults to `dude_img_hashfeed_insta_count` value.
+
 ##### `dude_img_hashfeed_insta_transient_lifetime`
 Images are stored to transient in favor of caching and reducing page load time. By default, lifetime is five minutes and after that new images are fetched from Instagram when calling one of previously listed functions.
 
@@ -110,7 +112,3 @@ To use with composer, run `composer require digitoimistodude/image-hashtag-feed 
 
 ### Contributing
 If you have ideas about the theme or spot an issue, please let us know. Before contributing ideas or reporting an issue about "missing" features or things regarding to the nature of that matter, please read [Please note section](#please-note-before-using). Thank you very much.
-
-### TODO
-- [ ] Support for multiple hashtags
-- [ ] Run fetch after `dude_img_hashfeed_insta_count` value has changed
