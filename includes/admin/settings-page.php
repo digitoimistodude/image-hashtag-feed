@@ -52,7 +52,7 @@ Class Dude_Img_Hashfeed_Admin_Settings_Page extends Dude_Img_Hashfeed {
       array(
         'id'            => 'hashtags',
         'title'         => __( 'Hashtag', 'dude-img-hashfeed' ),
-        'description'   => __( 'Type hashtag without hash at the beginning.', 'dude-img-hashfeed' ),
+        'description'   => __( 'Type hashtag without hash at the beginning. You can also set this dynamically from the functions.', 'dude-img-hashfeed' ),
       )
     );
 

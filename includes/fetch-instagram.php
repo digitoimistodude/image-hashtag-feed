@@ -15,20 +15,26 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 		return self::$_instance;
 	} // end function instance
 
-	public static function do_fetch() {
-		$settings = get_option( 'dude-img-hashfeed' );
-		$hashtag = strtolower( $settings['hashtags'] );
-		$count = apply_filters( 'dude_img_hashfeed_insta_count', 10 );
+	public static function do_fetch( $hashtag = null ) {
+    if ( empty( $hashtag ) ) {
+      $settings = get_option( 'dude-img-hashfeed' );
+      $hashtag = strtolower( $settings['hashtags'] );
+    }
 
-		if( empty( $hashtag ) )
+		if ( empty( $hashtag ) ) {
 			return false;
+    }
+
+    $count = apply_filters( 'dude_img_hashfeed_insta_count', 10 );
+    $count = apply_filters( "dude_img_hashfeed_insta_count_{$hashtag}", $count );
 
 		$url = "https://www.instagram.com/explore/tags/{$hashtag}/?__a=1";
    	$output = json_decode( file_get_contents( $url ) );
     $insta = $output->graphql->hashtag->edge_hashtag_to_media->edges;
 
-		if( empty( $insta ) )
+		if ( empty( $insta ) ) {
 			return false;
+    }
 
 		$real_insta = array();
 		$insta = array_slice( $insta, 0, $count );
@@ -46,15 +52,15 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 
 		$insta = $real_insta;
 
-		$return = set_transient( 'dude_img_hashfeed_insta', $insta, apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
+		$return = set_transient( "dude_hashfeed_insta_{$hashtag}|{$count}", $insta, apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
 
-		if( $return ) {
+		if ( $return ) {
 			$option = get_option( 'dude-img-hashfeed' );
 			$option['last_fetch_insta'] = current_time( 'Y-m-d H:i:s' );
 			update_option( 'dude-img-hashfeed', $option );
 		}
 
-		return $return;
+		return $insta;
 	} // end function do_fetch
 
   protected static function generate_random_string( $length = 10 ) {

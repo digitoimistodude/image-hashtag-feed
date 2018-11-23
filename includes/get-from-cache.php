@@ -15,22 +15,26 @@ Class Dude_Img_Hashfeed_Get_From_Cache extends Dude_Img_Hashfeed {
 		return self::$_instance;
 	} // end function instance
 
-	public static function get_raw() {
-		$count = apply_filters( 'dude_img_hashfeed_insta_count', 10 );
-		$insta_cache = get_transient( 'dude_img_hashfeed_insta' );
+	public static function get_raw( $hashtag = null ) {
+    if ( empty( $hashtag ) ) {
+      $settings = get_option( 'dude-img-hashfeed' );
+      $hashtag = strtolower( $settings['hashtags'] );
+    }
 
-	  if( !$insta_cache ) {
-	    Dude_Img_Hashfeed_Fetch_Instagram::do_fetch();
-			$insta_cache = get_transient( 'dude_img_hashfeed_insta' );
+    $count = apply_filters( 'dude_img_hashfeed_insta_count', 10 );
+    $count = apply_filters( "dude_img_hashfeed_insta_count_{$hashtag}", $count );
+
+		$insta_cache = get_transient( "dude_hashfeed_insta_{$hashtag}|{$count}" );
+
+	  if ( ! $insta_cache ) {
+	    $insta = Dude_Img_Hashfeed_Fetch_Instagram::do_fetch( $hashtag );
 	  }
 
-		$insta_cache = array_slice( $insta_cache, 0, $count );
-
-		return $insta_cache;
+		return $insta;
 	} // end function get_raw
 
-	public static function get_thumbnails() {
-		$images = self::get_raw();
+	public static function get_thumbnails( $hashtag = null ) {
+		$images = self::get_raw( $hashtag );
 
 		ob_start();
 

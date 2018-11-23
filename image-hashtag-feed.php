@@ -63,19 +63,19 @@ Class Dude_Img_Hashfeed {
 $plugin = new Dude_Img_Hashfeed();
 
 if( !function_exists( 'get_the_dude_img_hashfeed_raw' ) ) {
-	function get_the_dude_img_hashfeed_raw() {
-		return Dude_Img_Hashfeed_Get_From_Cache::get_raw();
+	function get_the_dude_img_hashfeed_raw( $hashtag = null ) {
+		return Dude_Img_Hashfeed_Get_From_Cache::get_raw( $hashtag );
 	} // end function dude_img_hashfeed_get_raw
 }
 
 if( !function_exists( 'get_the_dude_img_hashfeed_thumbnails' ) ) {
-	function get_the_dude_img_hashfeed_thumbnails() {
-		return Dude_Img_Hashfeed_Get_From_Cache::get_thumbnails();
+	function get_the_dude_img_hashfeed_thumbnails( $hashtag = null ) {
+		return Dude_Img_Hashfeed_Get_From_Cache::get_thumbnails( $hashtag );
 	} // end function dude_img_hashfeed_thumbnails
 }
 
 if( !function_exists( 'the_dude_img_hashfeed_thumbnails' ) ) {
-	function the_dude_img_hashfeed_thumbnails() {
-		echo Dude_Img_Hashfeed_Get_From_Cache::get_thumbnails();
+	function the_dude_img_hashfeed_thumbnails( $hashtag = null ) {
+		echo Dude_Img_Hashfeed_Get_From_Cache::get_thumbnails( $hashtag );
 	} // end function dude_img_hashfeed_thumbnails
 }
