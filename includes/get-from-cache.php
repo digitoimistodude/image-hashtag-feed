@@ -24,9 +24,9 @@ Class Dude_Img_Hashfeed_Get_From_Cache extends Dude_Img_Hashfeed {
     $count = apply_filters( 'dude_img_hashfeed_insta_count', 10 );
     $count = apply_filters( "dude_img_hashfeed_insta_count_{$hashtag}", $count );
 
-		$insta_cache = get_transient( "dude_hashfeed_insta_{$hashtag}|{$count}" );
+		$insta = get_transient( "dude_hashfeed_insta_{$hashtag}|{$count}" );
 
-	  if ( ! $insta_cache ) {
+	  if ( ! $insta ) {
 	    $insta = Dude_Img_Hashfeed_Fetch_Instagram::do_fetch( $hashtag );
 	  }
 
@@ -38,7 +38,7 @@ Class Dude_Img_Hashfeed_Get_From_Cache extends Dude_Img_Hashfeed {
 
 		ob_start();
 
-		foreach( $images as $image ) {
+		foreach ( $images as $image ) {
 			echo "<img src='$image->thumbnail_src' alt='$image->caption' />";
     }
 
