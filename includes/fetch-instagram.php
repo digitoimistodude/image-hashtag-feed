@@ -33,6 +33,7 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
     $insta = $output->graphql->hashtag->edge_hashtag_to_media->edges;
 
 		if ( empty( $insta ) ) {
+			set_transient( "dude_hashfeed_insta_{$hashtag}|{$count}", $insta, apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
 			return false;
     }
 
