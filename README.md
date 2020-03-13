@@ -1,5 +1,5 @@
 # Image hashtag feed
-WordPress plugin to get Instagram hashtag feeds working again by bypassing the API. Handcafted with love at [Digitoimisto Dude Oy](http://dude.fi), a Finnish boutique digital agency in the center of Jyväskylä.
+WordPress plugin to get Instagram hashtag feeds working again by bypassing the API. Handcrafted with love at [Digitoimisto Dude Oy](http://dude.fi), a Finnish boutique digital agency in the center of Jyväskylä.
 
 The Instagram fetcher is based on [Instagram-Hashtag-Grabber](https://github.com/Bolandish/Instagram-Hashtag-Grabber) from [Thomas Bolander](https://github.com/Bolandish) and settings page is made with excellent [Simple Admin Pages](https://github.com/NateWr/simple-admin-pages) library made by [Nate Wright](https://github.com/NateWr).
 
@@ -33,7 +33,7 @@ Image hashtag feed is released under the GNU GPL 2 or later.
 #### Settings
 Settings page can be found from `Settings` -> `Image hashtag feed`.
 
-From settings page you can set which hastag to use and check when the last fetch from Instagram was made. Hashtag can be also set dynamically from functions described below.
+From settings page you can set which hashtag to use and check when the last fetch from Instagram was made. Hashtag can be also set dynamically from functions described below.
 
 #### Functions
 Plugin brings few functions to use in your site.
